@@ -21,7 +21,6 @@ WORKTREES_TO_REMOVE: list[str] = [
     "fix/login-bug",
     "holaa/prueba",
     "holaa/prueba2",
-    "holaa/prueba3",
 ]
 
 # Si True, tambien elimina la rama local al borrar un worktree.
