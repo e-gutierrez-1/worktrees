@@ -17,7 +17,7 @@ WORKTREES_TO_CREATE: list[str] = []
 # Se eliminara el worktree y opcionalmente la rama asociada.
 WORKTREES_TO_REMOVE: list[str] = [
     "feature/auth",
-    "feature/api",
+    "feature/api-fjsdkfkldsfjdskljfkjf",
     "fix/login-bug",
     "holaa/prueba",
     "holaa/prueba2",
