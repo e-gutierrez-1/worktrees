@@ -11,7 +11,13 @@ from pathlib import Path
 
 # Worktrees a CREAR: lista de nombres de rama.
 # Se creara un worktree por cada rama en la carpeta "trees/<nombre>".
-WORKTREES_TO_CREATE: list[str] = []
+WORKTREES_TO_CREATE: list[str] = [
+    "feature/auth",
+    "feature/api",
+    "fix/login-bug",
+    "holaa/prueba",
+    "holaa/prueba2",
+]
 
 # Worktrees a ELIMINAR: lista de nombres de rama.
 # Se eliminara el worktree y opcionalmente la rama asociada.
@@ -113,14 +119,6 @@ def main() -> None:
     trees_path = repo_root / TREES_DIR
     trees_path.mkdir(exist_ok=True)
 
-    if WORKTREES_TO_CREATE:
-        print(f"\n--- Creando {len(WORKTREES_TO_CREATE)} worktree(s) ---")
-        for branch in WORKTREES_TO_CREATE:
-            try:
-                create_worktree(branch, trees_path)
-            except subprocess.CalledProcessError as e:
-                print(f"  [ERROR] No se pudo crear '{branch}': {e}", file=sys.stderr)
-
     if WORKTREES_TO_REMOVE:
         print(f"\n--- Eliminando {len(WORKTREES_TO_REMOVE)} worktree(s) ---")
         for branch in WORKTREES_TO_REMOVE:
@@ -128,6 +126,14 @@ def main() -> None:
                 remove_worktree(branch, trees_path)
             except subprocess.CalledProcessError as e:
                 print(f"  [ERROR] No se pudo eliminar '{branch}': {e}", file=sys.stderr)
+
+    if WORKTREES_TO_CREATE:
+        print(f"\n--- Creando {len(WORKTREES_TO_CREATE)} worktree(s) ---")
+        for branch in WORKTREES_TO_CREATE:
+            try:
+                create_worktree(branch, trees_path)
+            except subprocess.CalledProcessError as e:
+                print(f"  [ERROR] No se pudo crear '{branch}': {e}", file=sys.stderr)
 
     # Mostrar estado actual
     print("\n--- Worktrees activos ---")
