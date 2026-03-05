@@ -18,7 +18,7 @@ WORKTREES_TO_CREATE: list[str] = []
 WORKTREES_TO_REMOVE: list[str] = [
     "feature/auth",
     "feature/api",
-    "fix/login-bug",
+    "fix/login-bug-FJSDKFDSKFJSDJORFEOFJEOJFOS",
     "holaa/prueba",
     "holaa/prueba2",
 ]
